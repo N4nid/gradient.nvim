@@ -1,9 +1,11 @@
 -- actuall logic for plugin here
 local M = {}
 Num = ""
+CancelKey = ""
 
 function M.setup(opts)
 	opts = opts or {}
+	CancelKey = opts.cancelKey
 	Num = opts.num
 	vim.keymap.set("n", opts.key, function()
 		ConvertNums()
@@ -25,7 +27,7 @@ function ConvertNums()
 			continueListening = false
 		end
 	end
-	if input == "c" then
+	if input == CancelKey then
 		print("canceled")
 	else
 		vim.api.nvim_feedkeys(converted, "t", false)
