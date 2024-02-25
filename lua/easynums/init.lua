@@ -12,10 +12,6 @@ function M.setup(opts)
 	end)
 end
 
-function Foo(keys)
-	vim.api.nvim_feedkeys(keys, "t", false)
-end
-
 function ConvertNums()
 	local input
 	local continueListening = true
@@ -34,8 +30,8 @@ function ConvertNums()
 	if input == CancelKey then
 		print("canceled")
 	else
-		print("wow")
-		Foo(converted)
+		vim.notify("yay", 0)
+		vim.api.nvim_feedkeys(converted, "t", false)
 	end
 end
 
