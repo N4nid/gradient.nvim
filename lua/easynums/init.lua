@@ -17,6 +17,7 @@ function ConvertNums()
 	local continueListening = true
 	local converted = ""
 
+	vim.opt.cursorcolumn = true
 	print(Num)
 	while continueListening do
 		input = vim.fn.getcharstr()
@@ -30,9 +31,9 @@ function ConvertNums()
 	if input == CancelKey then
 		print("canceled")
 	else
-		vim.notify("yay", 0)
-		vim.api.nvim_feedkeys(converted, "t", false)
+		vim.api.nvim_feedkeys(converted, "t", true)
 	end
+	vim.opt.cursorcolumn = false
 end
 
 return M
