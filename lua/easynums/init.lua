@@ -18,6 +18,7 @@ function ConvertNums()
 	local converted = ""
 
 	vim.opt.cursorcolumn = true
+	vim.opt.relativenumber = true
 	print(Num)
 	while continueListening do
 		input = vim.fn.getcharstr()
