@@ -7,7 +7,7 @@ function M.setup(opts)
 	opts = opts or {}
 	CancelKey = opts.cancelKey
 	Num = opts.num
-	vim.keymap.set("n", opts.key, function()
+	vim.keymap.set({ "n", "v" }, opts.key, function()
 		ConvertNums()
 	end)
 end
